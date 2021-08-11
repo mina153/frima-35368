@@ -13,7 +13,7 @@
 | first_name          | string  | null:false                   |
 | family_name_reading | string  | null:false                   |
 | first_name_reading  | string  | null:false                   |
-| birth_day           | date    | null:false                   |
+| birth_date          | date    | null:false                   |
 
 ### Association
 
