@@ -13,10 +13,6 @@ RSpec.describe Item, type: :model do
       it "全ての値が正しく入力されていれば出品できること" do
         expect(@item).to be_valid
       end
-      it "ログイン状態のユーザーのみ、商品出品ページへ遷移できること" do
-        @item = FactoryBot.create(:user)
-        expect(@item).to be_valid
-      end
       it 'priceが300円以上なら出品できる' do
         @item.price = 400
         expect(@item).to be_valid

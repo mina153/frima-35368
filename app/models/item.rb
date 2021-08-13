@@ -3,13 +3,13 @@ class Item < ApplicationRecord
   belongs_to :user
   has_one_attached :image
 
-  validates :item_name, presence: true, length: { maximum: 40 }
-  validates :explanation, presence: true, length: { maximum: 1000 }
+  
 
   with_options presence: true do
     validates :price, numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999, message: "is out of setting range"}
     validates :image
-    
+    validates :item_name, length: { maximum: 40 }
+    validates :explanation, length: { maximum: 1000 }
 
     with_options numericality: { other_than: 1 , message: "can't be blank"} do
       validates :category_id
