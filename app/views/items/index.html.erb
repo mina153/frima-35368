@@ -130,37 +130,37 @@
 
     
     <% if @items.present? %>
-      <%# <% @items.each do |item| %>
-        <%# <li class='list'>
+      <% @items.each do |item| %>
+        <li class='list'> 
           <%= link_to "#" do %>
-          <%# <div class='item-img-content'>
-            <%= image_tag item.image, class: "item-img" %> %> %>
+          <div class='item-img-content'>
+            <%= image_tag item.image, class: "item-img" %>
 
-            <%# 商品が売れていればsold outを表示しましょう %>
+            
             <%# <% if item.present? %>
               <%# <div class='sold-out'>
                 <span>Sold Out!!</span>
-              </div>
-            <% end %> 
-            <%# //商品が売れていればsold outを表示しましょう%>
+              </div> %>
+            <%# <% end %> 
+            
 
           <div class='item-info'>
             <h3 class='item-name'>
-              <%# <%= item.item_name %>           %>
+              <%= item.item_name %>    
           
             </h3>
 
-            <%# <div class='item-price'>
-              <%# <span><%= item.price %>円<br><%= item.shipping_fee.name %></span>  %>
-              <%# <div class='star-btn'>
+            <div class='item-price'>
+              <span><%= item.price %>円<br><%= item.shipping_fee.name %></span> 
+              <div class='star-btn'>
                 <%= image_tag "star.png", class:"star-icon" %>
-                <%# <span class='star-count'>0</span>
-              </div>  %>
-            <%# </div> %>
+                  <span class='star-count'>0</span>
+              </div> 
+            </div> 
           </div>
-          <%# <% end %>
-        <%# </li>
-      <% end %> %> %> %>
+          <% end %>
+        </li>
+      <% end %> 
       
 
 
