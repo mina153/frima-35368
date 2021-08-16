@@ -18,7 +18,7 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to root_path
     else
-      render :new
+      render :show
     end
   end
 
@@ -56,7 +56,7 @@ class ItemsController < ApplicationController
   end
 
   def prohibit
-      redirect_to root_path unless current_user.id == @item.user_id
+    redirect_to root_path unless current_user.id == @item.user_id
   end
 
 end
