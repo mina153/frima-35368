@@ -14,7 +14,8 @@ class PurchaseAddress
   end
 
     validates :phone_number, numericality: {only_integer: true, message:  "is invalid. Input only number" }
-    validates :phone_number, length: { minimum: 10, message: "is too short"}
+    validates :phone_number, length: { minimum: 10, maximum: 11, message: "is invalid. Enter a 10-11 digit number"}
+    
 
     
   def save
