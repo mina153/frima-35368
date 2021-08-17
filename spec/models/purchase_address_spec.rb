@@ -3,8 +3,11 @@ require 'rails_helper'
 RSpec.describe PurchaseAddress, type: :model do
   before do
     user = FactoryBot.create(:user)
-    # item.image = fixture_file_upload('public/images/test_image.png')
-    @purchase_address = FactoryBot.build(:purchase_address, user_id: user.id)
+    item = FactoryBot.build(:item)
+    item.image = fixture_file_upload('public/images/test_image.png')
+    item.save
+    @purchase_address = FactoryBot.build(:purchase_address, user_id: user.id, item_id: item.id)
+    sleep 0.5
   end
 
   describe '商品購入' do
@@ -30,26 +33,6 @@ RSpec.describe PurchaseAddress, type: :model do
 
 
     context "商品購入できないとき" do
-      # it "numberが空だと購入できないこと" do
-      #   @purchase_address.number = ""
-      #   @purchase_address.valid?
-      #   expect(@purchase_address.errors.full_messages).to include("Number can't be blank")
-      # end     
-      # it "exp_monthが空だと購入できないこと" do
-      #   @purchase_address.exp_month = ""
-      #   @purchase_address.valid?
-      #   expect(@purchase_address.errors.full_messages).to include("Exp_month can't be blank")
-      # end
-      # it "exp_yearが空だと購入できないこと" do
-      #   @purchase_address.exp_year = ""
-      #   @purchase_address.valid?
-      #   expect(@purchase_address.errors.full_messages).to include("Exp_year can't be blank")
-      # end
-      # it "cvcが空だと購入できないこと" do
-      #   @purchase_address.cvc = ""
-      #   @purchase_address.valid?
-      #   expect(@purchase_address.errors.full_messages).to include("Cvc can't be blank")
-      # end
       it "tokenが空だと購入できないこと" do
         @purchase_address.token = nil
         @purchase_address.valid?
