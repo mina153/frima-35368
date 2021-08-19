@@ -5,7 +5,7 @@ class Item < ApplicationRecord
   has_one :purchase
 
 
-  with_options presence: true do
+  with_options presence: true  do
     validates :price, numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999, message: "is out of setting range"}
     validates :image
     validates :item_name, length: { maximum: 40 }
